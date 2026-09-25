@@ -579,3 +579,204 @@ label select {
     width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 18px 12px 12px;
+  }
+
+  .brand {
+    padding: 0 4px 18px;
+  }
+
+  .nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .nav-item {
+    min-width: 0;
+    padding: 9px 2px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .nav-item span {
+    width: auto;
+    margin-right: 2px;
+  }
+
+  .main-content {
+    padding: 16px 14px;
+  }
+
+  .topbar,
+  .section-toolbar {
+    gap: 12px;
+  }
+
+  .topbar h2 {
+    font-size: 21px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    max-width: 100%;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .welcome-card,
+  .report-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .welcome-card h3,
+  .report-hero h3 {
+    font-size: 20px;
+    overflow-wrap: anywhere;
+  }
+
+  .welcome-card p:not(.eyebrow),
+  .report-hero p:not(.eyebrow) {
+    margin-bottom: 0;
+    font-size: 13px;
+  }
+
+  .code-orb {
+    width: 56px;
+    height: 56px;
+    font-size: 19px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .stat-card {
+    min-width: 0;
+    padding: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  .stat-card strong {
+    font-size: 22px;
+  }
+
+  .panel {
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .department-row {
+    grid-template-columns: minmax(0, 1fr) minmax(36px, 1fr) 24px;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .department-row > span {
+    overflow-wrap: anywhere;
+  }
+
+  .toolbar-actions {
+    gap: 8px;
+  }
+
+  .table-panel {
+    padding: 0;
+  }
+
+  th,
+  td {
+    padding: 12px;
+  }
+
+  .payroll-total {
+    gap: 8px;
+    padding: 15px;
+  }
+
+  .payroll-total strong {
+    font-size: 18px;
+  }
+
+  .modal-backdrop {
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .modal {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .form-grid {
+    gap: 13px;
+    margin: 18px 0;
+  }
+
+  .form-actions {
+    gap: 8px;
+  }
+
+  .toast {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-content {
+    padding: 14px 10px;
+  }
+
+  .nav-item {
+    font-size: 10px;
+  }
+
+  .nav-item span {
+    display: block;
+    margin: 0 auto 2px;
+  }
+
+  .welcome-card,
+  .report-hero {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .stat-card strong {
+    font-size: 20px;
+  }
+
+  .panel {
+    padding: 13px;
+  }
+
+  .table-panel {
+    padding: 0;
+  }
+
+  .modal {
+    padding: 15px;
+  }
+}
