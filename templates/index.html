@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PyStaff — Employee Management</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">PS</div>
+          <div>
+            <h1>PyStaff</h1>
+            <span>Employee System</span>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active" data-section="dashboard">
+            <span>▦</span> Dashboard
+          </button>
+          <button class="nav-item" data-section="employees">
+            <span>◉</span> Employees
+          </button>
+          <button class="nav-item" data-section="payroll">
+            <span>Tk</span> Payroll
+          </button>
+          <button class="nav-item" data-section="reports">
+            <span>▤</span> Reports
+          </button>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">EMPLOYEE ADMINISTRATION</p>
+            <h2 id="page-title">Dashboard</h2>
+          </div>
+
+          <button class="primary-btn" id="header-add-btn">
+            + Add Employee
+          </button>
+        </header>
+
+        <section class="section active" id="dashboard-section">
+          <div class="welcome-card">
+            <div>
+              <p class="eyebrow">MY PYTHON PROJECT</p>
+              <h3>Employee Management & Payroll</h3>
+              <p>
+                A modular Python application demonstrating OOP, inheritance,
+                polymorphism, CRUD operations and JSON persistence.
+              </p>
+            </div>
+            <div class="code-orb">PY</div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span>Total Employees</span>
+              <strong id="total-employees">0</strong>
+              <small>Active records</small>
+            </div>
+
+            <div class="stat-card">
+              <span>Full-Time</span>
+              <strong id="full-time">0</strong>
+              <small>Monthly employees</small>
+            </div>
+
+            <div class="stat-card">
+              <span>Part-Time</span>
+              <strong id="part-time">0</strong>
+              <small>Hourly employees</small>
+            </div>
+
+            <div class="stat-card">
+              <span>Total Payroll</span>
+              <strong id="total-payroll">৳0</strong>
+              <small>Monthly equivalent</small>
+            </div>
+          </div>
+
+          <div class="content-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">OVERVIEW</p>
+                  <h3>Department Distribution</h3>
+                </div>
+              </div>
+              <div id="department-list" class="department-list"></div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">QUICK ACTION</p>
+                  <h3>Manage Employees</h3>
+                </div>
+              </div>
+              <p class="muted">
+                Add, search, update and remove employee records from one place.
+              </p>
+              <button class="secondary-btn" id="quick-manage-btn">
+                Open Employee Management
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="employees-section">
+          <div class="section-toolbar">
+            <div>
+              <p class="eyebrow">RECORDS</p>
+              <h3>Employee Directory</h3>
+            </div>
+
+            <div class="toolbar-actions">
+              <input
+                id="search-input"
+                class="search-input"
+                type="search"
+                placeholder="Search employee..."
+              />
+              <button class="primary-btn" id="employee-add-btn">
+                + Add Employee
+              </button>
+            </div>
+          </div>
+
+          <div class="panel table-panel">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Employee</th>
+                    <th>Department</th>
+                    <th>Type</th>
+                    <th>Salary</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="employee-table"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="payroll-section">
+          <div class="section-toolbar">
+            <div>
+              <p class="eyebrow">FINANCE</p>
+              <h3>Payroll Summary</h3>
+            </div>
+          </div>
+
+          <div class="panel table-panel">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Employee</th>
+                    <th>Type</th>
+                    <th>Salary</th>
+                  </tr>
+                </thead>
+                <tbody id="payroll-table"></tbody>
+              </table>
+            </div>
+
+            <div class="payroll-total">
+              <span>Total Payroll</span>
+              <strong id="payroll-total">৳0</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="reports-section">
+          <div class="report-hero">
+            <div>
+              <p class="eyebrow">REPORTING</p>
+              <h3>Employee Report</h3>
+              <p>
+                Generate a fresh text report using the current employee records.
+              </p>
+            </div>
+
+            <button class="primary-btn" id="generate-report-btn">
+              Generate Report
+            </button>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">GENERATED FILE</p>
+                <h3>employee_report.txt</h3>
+              </div>
+            </div>
+            <p class="muted">
+              The report is generated by the Python ReportGenerator class and
+              stored in the data folder.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="modal">
+      <div class="modal">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">EMPLOYEE FORM</p>
+            <h3 id="modal-title">Add Employee</h3>
+          </div>
+          <button class="close-btn" id="close-modal">×</button>
+        </div>
+
+        <form id="employee-form">
+          <input type="hidden" id="editing-id" />
+
+          <div class="form-grid">
+            <label>
+              Employee ID
+              <input id="employee-id" required placeholder="EMP001" />
+            </label>
+
+            <label>
+              Full Name
+              <input id="name" required placeholder="John Doe" />
+            </label>
+
+            <label>
+              Email
+              <input
+                id="email"
+                type="email"
+                required
+                placeholder="john@example.com"
+              />
+            </label>
+
+            <label>
+              Department
+              <input id="department" required placeholder="Development" />
+            </label>
+
+            <label>
+              Employee Type
+              <select id="type">
+                <option value="full_time">Full-Time</option>
+                <option value="part_time">Part-Time</option>
+              </select>
+            </label>
+
+            <label id="salary-label">
+              Monthly Salary
+              <input
+                id="salary"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="30000"
+              />
+            </label>
+
+            <label id="hourly-label" class="hidden">
+              Hourly Rate
+              <input
+                id="hourly-rate"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="250"
+              />
+            </label>
+
+            <label id="hours-label" class="hidden">
+              Working Hours
+              <input
+                id="working-hours"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="80"
+              />
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="secondary-btn" id="cancel-btn">
+              Cancel
+            </button>
+            <button type="submit" class="primary-btn">Save Employee</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

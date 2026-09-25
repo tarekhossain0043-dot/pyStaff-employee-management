@@ -1,0 +1,28 @@
+[
+    {
+        "employee_id": "EMP002",
+        "name": "Karim Hasan",
+        "email": "karim@example.com",
+        "department": "Marketing",
+        "type": "part_time",
+        "hourly_rate": 250,
+        "working_hours": 80
+    },
+    {
+        "employee_id": "EMP003",
+        "name": "Nusrat Jahan",
+        "email": "nusrat@example.com",
+        "department": "HR",
+        "type": "full_time",
+        "monthly_salary": 32000
+    },
+    {
+        "employee_id": "r45389",
+        "name": "taka",
+        "email": "ret34@gmail.com",
+        "department": "Development",
+        "type": "part_time",
+        "hourly_rate": 45.0,
+        "working_hours": 34.0
+    }
+]

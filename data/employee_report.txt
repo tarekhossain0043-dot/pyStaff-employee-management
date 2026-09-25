@@ -1,0 +1,15 @@
+========================================
+           EMPLOYEE REPORT
+========================================
+
+Generated: 2026-09-25 13:57:03
+Total Employees: 3
+
+Employees by Department:
+- Marketing: 1
+- HR: 1
+- Development: 1
+
+Total Monthly Payroll: 53,530.00 BDT
+
+========================================
